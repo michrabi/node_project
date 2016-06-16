@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <div data-ng-controller="controller1">
+            Name:
+            <input type="text" data-ng-model="name"/>
+            <input type="text" data-ng-model="name"/>
+            <h3>Looping with ng-repeat directive</h3>
+            <ul>
+                <li data-ng-repeat="customer in customers | filter: name| orderBy: 'city'">
+                    {{ customer.name | uppercase}} - {{ customer.city }}
+                </li>
+            </ul>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.12/angular.min.js"></script>
+    <script>
+        function controller1($scope)
+        {
+            $scope.customers=[
+                {name:'Michal', city:'Afula'},
+                {name:'Michal', city:'AbHaifa'},
+                {name:'Dana', city:'Chicago'},
+                {name:'Inbal', city:'New-York'}
+            ];
+        }
+    </script>
+</body>
+</html>
+
+
